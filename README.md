@@ -10,6 +10,10 @@ A telegram bot based on a finite state machine
 * Python 3
 
 #### Install Dependency
+use `make` to install dependency
+
+or
+
 ```sh
 pip3 install -r requirements.txt
 ```
@@ -45,16 +49,11 @@ python3 app.py
 ![fsm](./img/show-fsm.png)
 
 ## Usage
-The initial state is set to `user`.
+Add @Wesleyi_Talent_bot (https://telegram.me/Wesleyi_Talent_bot)
 
-Every time `user` state is triggered to `advance` to another state, it will `go_back` to `user` state after the bot replies corresponding message.
+push `start` to talk with chat bot
 
-* user
-	* Input: "go to state1"
-		* Reply: "I'm entering state1"
 
-	* Input: "go to state2"
-		* Reply: "I'm entering state2"
 
 
 ## Author
