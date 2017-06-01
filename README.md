@@ -38,6 +38,8 @@ pip3 install -r requirements.txt
 - use `make run` to start `ngrok` and `app.py`
 
    - After run `./ngrok http 5000` in another terminal
+   
+      - `ngrok` is downloaded from https://ngrok.com/download
 
    - The original terminal will `sleep 5` (5 sec) for waiting the connection
 
