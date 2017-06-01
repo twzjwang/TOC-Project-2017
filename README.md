@@ -1,18 +1,20 @@
 # TOC Project 2017
 
-TOC Project 2017
+- TOC Project 2017
 
-A telegram bot based on a finite state machine
+- A telegram bot based on a finite state machine
+
+- You can lookup 當日匯率(exchange rate), 國際指數(stock market index), 當日行情(stock market)
 
 ## Setup
 
 ### Prerequisite
 
-* Python 3
+- Python 3
 
-#### Install Dependency
+### Install Dependency
 
-use `make` to install dependency
+- use `make` to install dependency
 
 or
 
@@ -25,50 +27,51 @@ pip3 install -r requirements.txt
 
 ### Secret Data
 
-`API_TOKEN` and `WEBHOOK_URL` in app.py **MUST** be set to proper values.
-Otherwise, you might not be able to run your code.
+- `API_TOKEN` and `WEBHOOK_URL` in app.py **MUST** be set to proper values.
+
+   - The current `API_TOKEN` is for @Wesleyi_Talent_bot (https://telegram.me/Wesleyi_Talent_bot)
+
+   - `WEBHOOK_URL` will be automatically set when running `app.py`
 
 ## Server
 
-use `make run` to start `ngrok` and `app.py`
+- use `make run` to start `ngrok` and `app.py`
 
-after run `./ngrok http 5000` in another terminal
+   - After run `./ngrok http 5000` in another terminal
 
-the original terminal will `sleep 5` (5 sec) for waiting the connection
+   - The original terminal will `sleep 5` (5 sec) for waiting the connection
 
-if 5 sec is not enough, please increase the sleeping time in `Makefile` 
+   - If 5 sec is not enough, please increase the sleeping time in `Makefile` 
 
-`app.py` can automatically parse `http://127.0.0.1:4040` and set `WEBHOOK_URL`
+   - `app.py` can automatically parse `http://127.0.0.1:4040` and set `WEBHOOK_URL`
 
 ## Client
 
-Add @Wesleyi_Talent_bot (https://telegram.me/Wesleyi_Talent_bot)
+- Add @Wesleyi_Talent_bot (https://telegram.me/Wesleyi_Talent_bot)
 
-push `start` to talk with chat bot
-<img src="./img/screenshot/a.png" width="432" height="768">
+- Push `start` to talk with chat bot
 
-you can lookup 當日匯率, 國際指數, 當日行情 by following the instruction (case insensitive)
+   <img src="./img/screenshot/a.png" width="432" height="768">
 
+- you can lookup 當日匯率(exchange rate), 國際指數(stock market index), 當日行情(stock market) by following the instruction (case insensitive)
 
+## Demonstration
 ### e.g. 1
-enter `A` for 當日匯率
+Enter `A` for 當日匯率
 
-<img src="./img/screenshot/b.png" width="432" height="768">
+   <img src="./img/screenshot/b.png" width="432" height="768">
 
 
 ### e.g. 2
-enter `Q` for 離開
+Enter `Q` for 離開
 
-<img src="./img/screenshot/c.png" width="432" height="768">
+   <img src="./img/screenshot/c.png" width="432" height="768">
 
 
 ### e.g. 3
-enter `error`+error message for 錯誤回報
+Enter `error`+error message for 錯誤回報
 
-<img src="./img/screenshot/d.png" width="432" height="768">
+   <img src="./img/screenshot/d.png" width="432" height="768">
 
 ## Finite State Machine
 ![fsm](./img/show-fsm.png)
-
-## Author
-[Lee-W](https://github.com/Lee-W)
