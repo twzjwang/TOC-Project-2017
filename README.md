@@ -11,7 +11,7 @@ A telegram bot based on a finite state machine
 
 #### Install Dependency
 ```sh
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 * pygraphviz (For visualizing Finite State Machine)
@@ -28,7 +28,7 @@ You can either setup https server or using `ngrok` as a proxy.
 **`ngrok` would be used in the following instruction**
 
 ```sh
-ngrok http 5000
+./ngrok http 5000
 ```
 
 After that, `ngrok` would generate a https URL.
