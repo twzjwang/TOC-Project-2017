@@ -107,7 +107,8 @@ class TocMachine(GraphMachine):
         temp = int(text)
         if temp / 1000 > 0:
             if temp / 1000 < 10:
-                return 1
+                return 1    
+        update.message.reply_text("股票不存在\n")
         return 0
         
     def is_Stock_to_Init(self, update):
@@ -218,7 +219,7 @@ class TocMachine(GraphMachine):
     #Stock
     def on_enter_Stock(self, update):
         print('Enter Stock')     
-        update.message.reply_text("查詢當日行情\n\n(1)\t輸入股票代號\n範例 : 輸入 2330 查詢 台積電(2330)\n輸入 2317 查詢 鴻海(2317)\n輸入 2882 查詢 富邦金(2881)\n\n(2)\t輸入 Q 離開\n\n(3)\t輸入 error + 狀況 回報錯誤\n\n")
+        update.message.reply_text("查詢當日行情\n\n(1)\t輸入股票代號\n範例 : 輸入 2330 查詢 台積電(2330)\n輸入 2317 查詢 鴻海(2317)\n輸入 2882 查詢 國泰金(2881)\n\n(2)\t輸入 Q 離開\n\n(3)\t輸入 error + 狀況 回報錯誤\n\n")
 
     def on_exit_Stock(self, update):
         print('Leaving Stock')     
@@ -232,13 +233,19 @@ class TocMachine(GraphMachine):
         temp = data.text.replace(' ', '')
         tar = '(TPE)'
         index = temp.find(tar)
-        temp = temp[index+400:index+450]
-        temp = re.sub(r'<[^>]*>', '', temp)
-        temp = re.sub(r'[^0-9.\n]', '', temp)
-        temp = re.sub('\n', '', temp)
-        print(temp)
-        update.message.reply_text(temp+'\n\n資料來源https://www.google.com.tw/search?biw=734&bih=754&q=%E8%82%A1%E5%83%B9+' + src + '&oq=%E8%82%A1%E5%83%B9+' + src + '&gs_l=serp.3..0i8i30k1.760.913.0.1592.2.2.0.0.0.0.159.302.0j2.2.0....0...1.1.64.serp..0.1.158.I_c-Lvh8thk')
-        self.go_back(update)
+        temp = temp[index+420:index+450]
+        temp1 = temp
+        temp = re.sub(r'157%', '', temp)
+        if temp1 == temp :
+            update.message.reply_text('無法查詢或股票不存在')
+            self.go_back(update)
+        else :
+            temp = re.sub(r'<[^>]*>', '', temp)
+            temp = re.sub(r'[^0-9.\n]', '', temp)
+            temp = re.sub('\n', '', temp)
+            print(temp)
+            update.message.reply_text(temp+'\n\n資料來源https://www.google.com.tw/search?biw=734&bih=754&q=%E8%82%A1%E5%83%B9+' + src + '&oq=%E8%82%A1%E5%83%B9+' + src + '&gs_l=serp.3..0i8i30k1.760.913.0.1592.2.2.0.0.0.0.159.302.0j2.2.0....0...1.1.64.serp..0.1.158.I_c-Lvh8thk')
+            self.go_back(update)
 
     def on_exit_Stock_parse(self, update):
         print('Leaving Stock_parse')     
