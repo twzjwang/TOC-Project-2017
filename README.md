@@ -26,12 +26,17 @@ pip3 install -r requirements.txt
     * [Setup pygraphviz on Ubuntu](http://www.jianshu.com/p/a3da7ecc5303)
 
 ### Secret Data
-
-- `API_TOKEN` and `WEBHOOK_URL` in app.py **MUST** be set to proper values.
+- API_TOKEN
 
    - The current `API_TOKEN` is for @Wesleyi_Talent_bot (https://telegram.me/Wesleyi_Talent_bot)
+   
+   - Set `API_TOKEN` at `app.py` line 13
+   
+- WEBHOOK_URL
 
    - `WEBHOOK_URL` will be automatically set when running `app.py`
+   
+   - If the previous function is not work, please set `WEBHOOK_URL`  at `app.py` line 166
 
 ## Server
 
@@ -80,4 +85,33 @@ server:
    <img src="./img/screenshot/e.png" >
 
 ## Finite State Machine
+
 ![fsm](./img/show-fsm.png)
+
+## Functions
+* Basic function
+
+   * more than three transactions departing from the initial state
+   
+   * more than three states in sequential order
+
+   * Display FSM
+   
+      * visit (WEBHOOK_URL)/show-fsm
+   * ...
+
+* Dynamic data
+
+   * parsing the up to date data
+
+* Users can report error messages, which would be saved at `error.log` later
+
+* parse `http://127.0.0.1:4040` and set `WEBHOOK_URL`
+
+   * you don't need to change `WEBHOOK_URL` everytime
+   
+* Add Makefile
+
+   * `make` to install dependency 
+   
+   * use `make run` to start `ngrok` and `app.py`
