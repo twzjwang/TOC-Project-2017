@@ -1,15 +1,21 @@
 # TOC Project 2017
 
-Template Code for TOC Project 2017
+TOC Project 2017
 
 A telegram bot based on a finite state machine
 
 ## Setup
 
 ### Prerequisite
+
 * Python 3
 
 #### Install Dependency
+
+use `make` to install dependency
+
+or
+
 ```sh
 pip3 install -r requirements.txt
 ```
@@ -22,40 +28,41 @@ pip3 install -r requirements.txt
 `API_TOKEN` and `WEBHOOK_URL` in app.py **MUST** be set to proper values.
 Otherwise, you might not be able to run your code.
 
-### Run Locally
-You can either setup https server or using `ngrok` as a proxy.
+## Server
 
-**`ngrok` would be used in the following instruction**
+use `make run` to start `ngrok` and `app.py`
 
-```sh
-./ngrok http 5000
-```
+after run `./ngrok http 5000` in another terminal
 
-After that, `ngrok` would generate a https URL.
+the original terminal will `sleep 5` (5 sec) for waiting the connection
 
-You should set `WEBHOOK_URL` (in app.py) to `your-https-URL/hook`.
+if 5 sec is not enough, please increase the sleeping time in `Makefile` 
 
-#### Run the sever
+`app.py` can automatically parse `http://127.0.0.1:4040` and set `WEBHOOK_URL`
 
-```sh
-python3 app.py
-```
+## Client
+
+Add @Wesleyi_Talent_bot (https://telegram.me/Wesleyi_Talent_bot)
+
+push `start` to talk with chat bot
+![](./img/screenshot/a.png)
+
+you can lookup 當日匯率, 國際指數, 當日行情 by following the instruction (case insensitive)
+
+e.g. 1
+enter `A` for 當日匯率
+![](./img/screenshot/b.png)
+
+e.g. 2
+enter `Q` for 離開
+![](./img/screenshot/c.png)
+
+e.g. 3
+enter `error`+error message for 錯誤回報
+![](./img/screenshot/d.png)
 
 ## Finite State Machine
 ![fsm](./img/show-fsm.png)
-
-## Usage
-The initial state is set to `user`.
-
-Every time `user` state is triggered to `advance` to another state, it will `go_back` to `user` state after the bot replies corresponding message.
-
-* user
-	* Input: "go to state1"
-		* Reply: "I'm entering state1"
-
-	* Input: "go to state2"
-		* Reply: "I'm entering state2"
-
 
 ## Author
 [Lee-W](https://github.com/Lee-W)
