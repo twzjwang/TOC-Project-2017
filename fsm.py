@@ -231,6 +231,13 @@ class TocMachine(GraphMachine):
         print(src)
         data = requests.get('https://www.google.com.tw/search?biw=734&bih=754&q=%E8%82%A1%E5%83%B9+' + src + '&oq=%E8%82%A1%E5%83%B9+' + src + '&gs_l=serp.3..0i8i30k1.760.913.0.1592.2.2.0.0.0.0.159.302.0j2.2.0....0...1.1.64.serp..0.1.158.I_c-Lvh8thk')
         temp = data.text.replace(' ', '')
+        
+        tar = '搜尋結果'
+        index = temp.find(tar)
+        nm = temp[index+20:index+75]
+        nm = re.sub(r'<[^>]*>', '', nm)
+        nm = re.sub(r'[a-zA-Z<>/,.+-_`\"\']', '', nm)
+        
         tar = '(TPE)'
         index = temp.find(tar)
         temp = temp[index+420:index+450]
@@ -244,7 +251,7 @@ class TocMachine(GraphMachine):
             temp = re.sub(r'[^0-9.\n]', '', temp)
             temp = re.sub('\n', '', temp)
             print(temp)
-            update.message.reply_text(temp+'\n\n資料來源https://www.google.com.tw/search?biw=734&bih=754&q=%E8%82%A1%E5%83%B9+' + src + '&oq=%E8%82%A1%E5%83%B9+' + src + '&gs_l=serp.3..0i8i30k1.760.913.0.1592.2.2.0.0.0.0.159.302.0j2.2.0....0...1.1.64.serp..0.1.158.I_c-Lvh8thk')
+            update.message.reply_text(nm+'\n'+temp+'\n\n資料來源https://www.google.com.tw/search?biw=734&bih=754&q=%E8%82%A1%E5%83%B9+' + src + '&oq=%E8%82%A1%E5%83%B9+' + src + '&gs_l=serp.3..0i8i30k1.760.913.0.1592.2.2.0.0.0.0.159.302.0j2.2.0....0...1.1.64.serp..0.1.158.I_c-Lvh8thk')
             self.go_back(update)
 
     def on_exit_Stock_parse(self, update):
