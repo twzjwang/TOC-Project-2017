@@ -73,7 +73,11 @@ Enter `Q` for 離開
 ### e.g. 3
 Enter `error`+error message for 錯誤回報
 
-   <img src="./img/screenshot/d.png" width="432" height="768">
+   <img src="./img/screenshot/d.png" width="432" height="768"> 
+
+server:
+
+   <img src="./img/screenshot/e.png" >
 
 ## Finite State Machine
 ![fsm](./img/show-fsm.png)
