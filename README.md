@@ -26,35 +26,24 @@ pip3 install -r requirements.txt
 `API_TOKEN` and `WEBHOOK_URL` in app.py **MUST** be set to proper values.
 Otherwise, you might not be able to run your code.
 
-### Run Locally
-You can either setup https server or using `ngrok` as a proxy.
+## Server
+use `make run` to start `ngrok` and `app.py`
 
-**`ngrok` would be used in the following instruction**
+after run `./ngrok http 5000` in another terminal
 
-```sh
-./ngrok http 5000
-```
+the original terminal will `sleep 5` (5 sec) for waiting the connection
 
-After that, `ngrok` would generate a https URL.
+if 5 sec is not enough, please increase the sleeping time in `Makefile` 
 
-You should set `WEBHOOK_URL` (in app.py) to `your-https-URL/hook`.
+`app.py` can automatically parse `http://127.0.0.1:4040` and set `WEBHOOK_URL`
 
-#### Run the sever
-
-```sh
-python3 app.py
-```
-
-## Finite State Machine
-![fsm](./img/show-fsm.png)
-
-## Usage
+## Client
 Add @Wesleyi_Talent_bot (https://telegram.me/Wesleyi_Talent_bot)
 
 push `start` to talk with chat bot
 
-
-
+## Finite State Machine
+![fsm](./img/show-fsm.png)
 
 ## Author
 [Lee-W](https://github.com/Lee-W)
