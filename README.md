@@ -45,21 +45,27 @@ if 5 sec is not enough, please increase the sleeping time in `Makefile`
 Add @Wesleyi_Talent_bot (https://telegram.me/Wesleyi_Talent_bot)
 
 push `start` to talk with chat bot
-![](./img/screenshot/a.png)
+<img src="./img/screenshot/a.png" width="432" height="768">
 
 you can lookup 當日匯率, 國際指數, 當日行情 by following the instruction (case insensitive)
 
-e.g. 1
+
+### e.g. 1
 enter `A` for 當日匯率
-![](./img/screenshot/b.png)
 
-e.g. 2
+<img src="./img/screenshot/b.png" width="432" height="768">
+
+
+### e.g. 2
 enter `Q` for 離開
-![](./img/screenshot/c.png)
 
-e.g. 3
+<img src="./img/screenshot/c.png" width="432" height="768">
+
+
+### e.g. 3
 enter `error`+error message for 錯誤回報
-![](./img/screenshot/d.png)
+
+<img src="./img/screenshot/d.png" width="432" height="768">
 
 ## Finite State Machine
 ![fsm](./img/show-fsm.png)
