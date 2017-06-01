@@ -262,6 +262,8 @@ class TocMachine(GraphMachine):
         print('Enter error')
         mess = update.message.text.upper()
         print('\n\n***********\nERROR:' + mess + '\n***********\n\n')
+        f = open('error.log','a')
+        f.write(mess+'\n')
         self.go_back(update)
 
     def on_exit_error(self, update):
